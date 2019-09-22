@@ -21,7 +21,7 @@ const MainFooter = ({ contained, menuItems, copyright }) => (
     </Container>
   </footer>
 );
-// no need to define 
+
 MainFooter.propTypes = {
   /**
    * Whether the content is contained, or not.
@@ -39,14 +39,10 @@ MainFooter.propTypes = {
 
 MainFooter.defaultProps = {
   contained: false,
-  copyright: "Copyright © 2019 Boiler.Master",
+  copyright: "Copyright © 2018 DesignRevision",
   menuItems: [
     {
       title: "Home",
-      to: "#"
-    },
-    {
-      title: "Help to Buy",
       to: "#"
     },
     {
@@ -54,15 +50,15 @@ MainFooter.defaultProps = {
       to: "#"
     },
     {
-      title: "Pricing",
+      title: "About",
       to: "#"
     },
     {
-      title: "About Us",
+      title: "Products",
       to: "#"
     },
     {
-      title: "Contact Us",
+      title: "Blog",
       to: "#"
     }
   ]

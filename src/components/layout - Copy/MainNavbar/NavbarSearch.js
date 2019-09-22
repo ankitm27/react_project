@@ -1,25 +1,24 @@
 import React from "react";
 import {
   Form,
-  FormInput,
   InputGroup,
   InputGroupAddon,
-  InputGroupText
+  InputGroupText,
+  FormInput
 } from "shards-react";
 
 export default () => (
-  <Form className="main-sidebar__search w-100 border-right d-sm-flex " style={{ display: "flex", minHeight: "45px" }}>
+  <Form className="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
     <InputGroup seamless className="ml-3">
       <InputGroupAddon type="prepend">
         <InputGroupText>
           <i className="material-icons">search</i>
         </InputGroupText>
-        <FormInput
-          className="navbar-search"
-          placeholder="Search for anything..."
-          aria-label="Search"
-        />
       </InputGroupAddon>
+      <FormInput
+        className="navbar-search"
+        placeholder="Search for something..."
+      />
     </InputGroup>
   </Form>
 );

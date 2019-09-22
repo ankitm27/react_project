@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import classNames from "classnames";
 import { Col } from "shards-react";
 
@@ -7,36 +6,14 @@ import SidebarMainNavbar from "./SidebarMainNavbar";
 import SidebarSearch from "./SidebarSearch";
 import SidebarNavItems from "./SidebarNavItems";
 
-import { Store } from "../../../flux";
-
+ 
 class MainSidebar extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      menuVisible: false,
-      sidebarNavItems: Store.getSidebarItems()
+	 
+    state = {
+      menuVisible: false      
     };
-
-    this.onChange = this.onChange.bind(this);
-  }
-
-  componentWillMount() {
-    Store.addChangeListener(this.onChange);
-  }
-
-  componentWillUnmount() {
-    Store.removeChangeListener(this.onChange);
-  }
-
-  onChange() {
-    this.setState({
-      ...this.state,
-      menuVisible: Store.getMenuState(),
-      sidebarNavItems: Store.getSidebarItems()
-    });
-  }
-
+  
+ 
   render() {
     const classes = classNames(
       "main-sidebar",
@@ -52,23 +29,12 @@ class MainSidebar extends React.Component {
         lg={{ size: 2 }}
         md={{ size: 3 }}
       >
-        <SidebarMainNavbar hideLogoText={this.props.hideLogoText} />
+        <SidebarMainNavbar   />
         <SidebarSearch />
         <SidebarNavItems />
       </Col>
     );
   }
 }
-
-MainSidebar.propTypes = {
-  /**
-   * Whether to hide the logo text, or not.
-   */
-  hideLogoText: PropTypes.bool
-};
-
-MainSidebar.defaultProps = {
-  hideLogoText: false
-};
 
 export default MainSidebar;

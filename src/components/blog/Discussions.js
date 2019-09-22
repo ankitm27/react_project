@@ -14,7 +14,7 @@ import {
 const Discussions = ({ title, discussions }) => (
   <Card small className="blog-comments">
     <CardHeader className="border-bottom">
-      <h6 className="m-0">{title}</h6>
+      <h6 className="m-0">ttt:{title}</h6>
     </CardHeader>
 
     <CardBody className="p-0">
@@ -105,7 +105,7 @@ Discussions.defaultProps = {
         url: "#"
       },
       post: {
-        title: "Hello World!",
+        title: "Hello World!1",
         url: "#"
       },
       body: "Well, the way they make shows is, they make one show ..."
@@ -119,21 +119,21 @@ Discussions.defaultProps = {
         url: "#"
       },
       post: {
-        title: "Hello World!",
+        title: "Hello World!2",
         url: "#"
       },
       body: "After the avalanche, it took us a week to climb out. Now..."
     },
     {
       id: 3,
-      date: "5 days ago",
+      date: "5ssss days ago",
       author: {
         image: require("../../images/avatars/3.jpg"),
         name: "John Doe",
         url: "#"
       },
       post: {
-        title: "Hello World!",
+        title: "Hello World!3",
         url: "#"
       },
       body: "My money's in that office, right? If she start giving me..."

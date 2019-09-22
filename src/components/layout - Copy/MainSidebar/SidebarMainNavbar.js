@@ -1,13 +1,25 @@
 import React from "react";
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { Navbar, NavbarBrand } from "shards-react";
 
-class SidebarMainNavbar extends React.Component {   
+import { Dispatcher, Constants } from "../../../flux";
+
+class SidebarMainNavbar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleToggleSidebar = this.handleToggleSidebar.bind(this);
+  }
+
+  handleToggleSidebar() {
+    Dispatcher.dispatch({
+      actionType: Constants.TOGGLE_SIDEBAR
+    });
+  }
 
   render() {
-    const myValText = ".1.";
+    const { hideLogoText } = this.props;
     return (
-	 <span>{myValText}
       <div className="main-navbar">
         <Navbar
           className="align-items-stretch bg-white flex-md-nowrap border-bottom p-0"
@@ -26,23 +38,35 @@ class SidebarMainNavbar extends React.Component {
                 src={require("../../../images/shards-dashboards-logo.svg")}
                 alt="Shards Dashboard"
               />
+              {!hideLogoText && (
                 <span className="d-none d-md-inline ml-1">
-                  Boiler.Master
-              </span>              
+                  Shards Dashboard
+                </span>
+              )}
             </div>
           </NavbarBrand>
           {/* eslint-disable-next-line */}
           <a
-            className="toggle-sidebar d-sm-inline "
+            className="toggle-sidebar d-sm-inline d-md-none d-lg-none"
             onClick={this.handleToggleSidebar}
           >
             <i className="material-icons">&#xE5C4;</i>
           </a>
         </Navbar>
-      </div></span> 
+      </div>
     );
   }
 }
- 
+
+SidebarMainNavbar.propTypes = {
+  /**
+   * Whether to hide the logo text, or not.
+   */
+  hideLogoText: PropTypes.bool
+};
+
+SidebarMainNavbar.defaultProps = {
+  hideLogoText: false
+};
 
 export default SidebarMainNavbar;
